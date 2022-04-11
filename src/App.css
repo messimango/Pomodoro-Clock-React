@@ -9,8 +9,121 @@ body {
   align-items: center;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+
 .title {
   text-align: center;
   font-family: "Poppins";
   font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+.title div{
+  height: 10px;
+  background-color: red;
+  width: 40%;
+}
+
+/* timer */
+
+
+/* timer buttons */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightpink;
+  color: darkcyan;
+  width: 50%;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px;
+}
+
+.timerButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerButtons a{
+  font-size: 20px;
+  margin: 5px 10px;
+  padding: 3px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.timerButtons a:hover{
+  color: red;
+}
+
+.plus {  
+  border: 1px darkcyan solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.plus:hover {
+  border: red 1px solid;
+}
+
+.plus h2{
+  font-size: 20px;
+  font-family: 'Rubik';
+}
+
+.minus {  
+  border: 1px darkcyan solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.minus:hover {
+  border: red 1px solid;
+}
+
+.minus h2{
+  font-size: 20px;
+  font-family: 'Rubik';
+}
+
+.settingButton {
+  text-align: center;
+  cursor: pointer;
+  border: darkgray 1px solid;
+  border-radius: 10px;
+  padding: 4px 4px 4px;
+}
+
+.settingButton:hover{
+  color: darkgray;
+}
+
+.settingButton i{
+  font-size: 30px;
+}
+.settingButton h2{
+  font-size: smaller;
+  font-family: 'Rubik';
+  margin-top: 0;
+  margin-bottom: 0;
 }
