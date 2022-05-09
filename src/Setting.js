@@ -1,9 +1,17 @@
 function Setting() {
     return (
-        <a className="settingButton">
-            <i className="fa fa-cogs" ></i>
-            <h2>Settings</h2>    
-        </a>
+        <div>
+            <h2>Settings</h2>
+        
+            <div className="setTime">
+                <label>Total Time Working :</label>
+                <input type='number' min='1' max='120' value='30' name='work'/>
+                <br></br>
+                <label>Total Break Time:</label>
+                <input type='number' min='1' max='120' value='10' name='break'/>
+            </div>
+        
+        </div>
     );
 }
 
