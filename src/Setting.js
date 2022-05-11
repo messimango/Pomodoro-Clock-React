@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import TimeContext from "./TimeContext";
+// import {useContext} from 'react';
+
 function Setting() {
+
+    // const timeInfo = useContext(TimeContext);
+
     return (
         <div>
             <h2>Settings</h2>

@@ -4,11 +4,11 @@ import Title from './Title';
 import Footer from './Footer';
 import Setting from './Setting';
 import {useState} from 'react';
-import TimeContext from './TimeSetting';
+import TimeContext from './TimeContext';
 
 function App() {
 
-    const [showSetting, setShowSetting] = useState(false);
+    const [showSetting, setShowSetting] = useState(true);
 
   return (
     <div>
@@ -20,7 +20,7 @@ function App() {
       }}>
 
       {showSetting ? <Setting /> : <Timer />}
-      
+
       </TimeContext.Provider>
       <Footer />
 
