@@ -1,0 +1,25 @@
+.work-slider{
+    box-sizing: border-box;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 25px;
+}
+
+.thumb {
+    background-color: red;
+    cursor: pointer;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+}
+
+.break-slider{
+    border: 2px solid greenyellow;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.break-slider .thumb{
+    background-color: greenyellow;
+}
