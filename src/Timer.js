@@ -11,7 +11,7 @@ import TimeContext from './TimeContext';
 function Timer() {
     const timeInfo = useContext(TimeContext)
 
-    const [pause, setPause] = useState(true);
+    const [pause, setPause] = useState(false);
     const [mode, setMode] = useState('work');
     const [timeRemaining, setTimeRemaining] = useState(0);
 
@@ -21,28 +21,27 @@ function Timer() {
     const pauseRef = useRef(pause);
     const modeRef = useRef(mode);
 
-    function initTimer() {
-        setTimeRemaining(timeInfo.totalTimeWorking * 60)
-    }
-
     function countdown() {
         timeRemainingRef.current--;
         setTimeRemaining(timeRemainingRef.current);
     }
 
-    function changeMode() {
-        const nextMode = modeRef.current === 'work' ? 'break' : 'work';
-        const nextTime = (nextMode === 'work' ? timeInfo.totalTimeWorking : timeInfo.totalBreakTime) * 60;        
-        setMode(nextMode);
-        modeRef.current = nextMode;
-        setTimeRemaining(nextTime);
-        timeRemainingRef.current = nextTime;
-    }
-
     
 
     useEffect(() => {
-        initTimer();
+        
+        function changeMode() {
+            const nextMode = modeRef.current === 'work' ? 'break' : 'work';
+            const nextTime = (nextMode === 'work' ? timeInfo.totalTimeWorking : timeInfo.totalBreakTime) * 60;        
+            setMode(nextMode);
+            modeRef.current = nextMode;
+            setTimeRemaining(nextTime);
+            timeRemainingRef.current = nextTime;
+        }
+
+        timeRemainingRef.current = timeInfo.totalTimeWorking * 60;
+        setTimeRemaining(timeRemainingRef.current);
+    
 
         const clock = setInterval(() => {
             if (pauseRef.current) {
@@ -54,10 +53,10 @@ function Timer() {
             }
 
             countdown();
-        }, 1000);
+        }, 10);
 
         return () => clearInterval(clock);
-    }, timeInfo);
+    }, [timeInfo]);
 
 
     const totalTime = mode === 'work' ? timeInfo.totalTimeWorking * 60 : timeInfo.totalBreakTime * 60;
@@ -82,8 +81,8 @@ function Timer() {
                 <div className='timerButtons'>
                     <Minus />
                     <div>
-                        {pause ? <PlayButton onClick={() => { setPause(false); pauseRef.current= false;}} /> 
-                        : <PauseButton onClick={() => { setPause(true); pauseRef.current= true;}} />}
+                        {pause ? <PlayButton onClick={() => { setPause(false); pauseRef.current= false; }} /> 
+                        : <PauseButton onClick={() => { setPause(true); pauseRef.current= true; }} />}
                     </div>
                     <Plus />
                 </div>                
