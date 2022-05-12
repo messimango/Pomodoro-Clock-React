@@ -45,6 +45,7 @@ function Timer() {
 
         const clock = setInterval(() => {
             if (pauseRef.current) {
+                console.log('Hello World');
                 return
             }
 
@@ -53,7 +54,7 @@ function Timer() {
             }
 
             countdown();
-        }, 10);
+        }, 1000);
 
         return () => clearInterval(clock);
     }, [timeInfo]);
