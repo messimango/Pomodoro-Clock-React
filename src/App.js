@@ -4,6 +4,7 @@ import Title from './Title';
 import Footer from './Footer';
 import TimeContext from './TimeContext';
 import { useState } from 'react';
+import Setting from './Setting';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         setTotalBreakTime,
       }}>
         <Timer />
+        
+        <Setting />
       </TimeContext.Provider>
       <Footer />
 
