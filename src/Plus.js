@@ -1,10 +1,10 @@
-function Plus() {
+function Plus(props) {
     return (
-        <a className="plus">
+        <button className="plus" onClick={props.data}>
             <i className="fa fa-plus-circle" >
                 <h2>60s</h2>
             </i>        
-        </a>
+        </button>
     );
 }
 

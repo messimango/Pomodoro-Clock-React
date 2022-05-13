@@ -1,6 +1,6 @@
-function PauseButton() {
+function PauseButton(props) {
     return (
-        <a className="pause"><i className="fa fa-pause" ></i></a>
+        <button className="pause" onClick={props.data}><i className="fa fa-pause" ></i></button>
     );
 }
 

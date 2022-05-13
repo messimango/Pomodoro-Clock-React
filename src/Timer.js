@@ -49,7 +49,7 @@ function Timer() {
                 return
             }
 
-            if (timeRemainingRef.current === 0) {
+            if (timeRemainingRef.current < 1 ) {
                 return changeMode();                
             }
 
@@ -67,7 +67,27 @@ function Timer() {
     if(timeSeconds < 10) timeSeconds = '0' + timeSeconds; 
 
 
+    // button clicks
 
+    function handlePlusClick() {
+        if(timeRemainingRef.current < (totalTime - 60) ){
+        timeRemainingRef.current = timeRemainingRef.current + 60;
+        } 
+    }
+
+    const handleMinusClick = () => {
+        timeRemainingRef.current = timeRemainingRef.current - 60;
+    }
+
+    const handlePauseClick = () => {
+        setPause(true);
+        pauseRef.current = true;
+    }
+
+    const handlePlayClick = () => {
+        setPause(false);
+        pauseRef.current = false;
+    }
 
     return (
         <div id='main'>
@@ -80,12 +100,12 @@ function Timer() {
             </div>
             <div className='buttons' >
                 <div className='timerButtons'>
-                    <Minus />
+                    <Minus data={handleMinusClick}/>
                     <div>
-                        {pause ? <PlayButton onClick={() => { setPause(false); pauseRef.current= false; }} /> 
-                        : <PauseButton onClick={() => { setPause(true); pauseRef.current= true; }} />}
+                        {pause ? <PlayButton data={handlePlayClick}/> 
+                        : <PauseButton data={handlePauseClick} />}
                     </div>
-                    <Plus />
+                    <Plus data={handlePlusClick} />
                 </div>                
             </div>
             

@@ -1,10 +1,10 @@
-function Minus() {
+function Minus(props) {
     return (
-        <a className="minus">
+        <button className="minus" onClick={props.data}>
                 <i className="fa fa-minus-circle" >
                     <h2>60s</h2>
                 </i>
-        </a>
+        </button>
     );
 }
 
